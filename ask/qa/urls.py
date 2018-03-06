@@ -9,4 +9,5 @@ urlpatterns = patterns('ask.views',
     re_path(r'^ask/$', test, name='ask'),
     re_path(r'^popular/$', test, name='popular'),
     re_path(r'^new/$', test, name='new'),
+    re_path(r'^', not_found, name='not_found'),
 )
