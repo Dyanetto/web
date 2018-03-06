@@ -1,13 +1,13 @@
-from django.urls import re_path
+from django.conf.urls import url
 from ask.views import *
 
 urlpatterns = patterns('ask.views',
-    re_path(r'^$', test, name='root'),
-    re_path(r'^login/$', test, name='login'),
-    re_path(r'^signup/$', test, name='singup'),
-    re_path(r'^question/(?P<id>\d+)/$', test, name='question'),
-    re_path(r'^ask/$', test, name='ask'),
-    re_path(r'^popular/$', test, name='popular'),
-    re_path(r'^new/$', test, name='new'),
-    re_path(r'^', not_found, name='not_found'),
+    url(r'^$', test, name='root'),
+    url(r'^login/$', test, name='login'),
+    url(r'^signup/$', test, name='singup'),
+    url(r'^question/(?P<id>\d+)/$', test, name='question'),
+    url(r'^ask/$', test, name='ask'),
+    url(r'^popular/$', test, name='popular'),
+    url(r'^new/$', test, name='new'),
+    url(r'^', not_found, name='not_found'),
 )
