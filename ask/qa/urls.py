@@ -1,13 +1,12 @@
-from django.conf.urls import url
-from ask.views import test
+from django.urls import path
+from . import views
 
-urlpatterns = patterns('ask.views',
-    url(r'^$', test, name='root'),
-    url(r'^login/', test, name='login'),
-    url(r'^signup/', test, name='singup'),
-    url(r'^question/(?P<id>\d+)/', test, name='question'),
-    url(r'^ask/$', test, name='ask'),
-    url(r'^popular/', test, name='popular'),
-    url(r'^new/', test, name='new'),
-    url(r'^', not_found, name='not_found'),
-)
+urlpatterns = [
+    path('', views.test, name='test'),
+    path('login/', views.test, name='test'),
+    path('signup/', views.test, name='test'),
+    path('question/<int:id>/', views.test, name='test'),
+    path('ask/', views.test, name='test'),
+    path('popular/', views.test, name='test'),
+    path('new/', views.test, name='test'),
+]
