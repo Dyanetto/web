@@ -24,6 +24,9 @@ class Question(models.Model):
     def get_absolute_url(self):
         return '/question/%d/' % self.pk
 
+    class Meta:
+        db_table = 'question'
+
 
 
 class Answer(models.Model):
@@ -32,6 +35,8 @@ class Answer(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     
+    class Meta:
+        db_table = 'answer'
     
 
 
