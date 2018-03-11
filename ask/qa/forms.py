@@ -14,7 +14,7 @@ class AskForm(forms.Form):
             raise forms.ValidationError('Wrong text', code='spam' )
 
     def save(self):
-        question = Question(**self.cleaned_data, added_at = datetime.now())
+        question = Question(**self.cleaned_data)
         question.save()
         return question
 
@@ -28,5 +28,6 @@ class AnswerForm(forms.Form):
 
     def save(self, question_id):
         qu = Question.objects.get(pk = question_id)
-        answer = Answer(**self.cleaned_data, question = qu, added_at = datetime.now())
+        answer = Answer(**self.cleaned_data)
+        answer.question = qu
         answer.save()
