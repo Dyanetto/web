@@ -12,10 +12,10 @@
     <div class="paginator">
     {% for p in paginator.page_range %}
         <p>
-        {% if p.number == page.number %}
-            {{ p.number }}
+        {% if p == page.number %}
+            {{ p  }}
         {% else %}
-            <a href="{{ paginator.baseurl }}{{ p.number }}">{{ p.number }}</a>
+            <a href="{{ paginator.baseurl }}{{ p }}">{{ p }}</a>
         {% endif %}
         </p>
     {% endfor %}
