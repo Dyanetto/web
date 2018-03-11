@@ -21,6 +21,7 @@ class AskForm(forms.Form):
 
 class AnswerForm(forms.Form):
     text = forms.CharField(widget=forms.Textarea)
+    question_id = forms.IntegerField(widget=forms.HiddenInput)
     
     def clean__text(self):
         if not len(text):

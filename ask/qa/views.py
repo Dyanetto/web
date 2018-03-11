@@ -37,7 +37,7 @@ def popular(request):
 def question(request, index):
     quest = get_object_or_404(Question, pk=index)
     if request.method == "POST":
-        form = AnswerForm(request.POST, quest.pk)
+        form = AnswerForm(request.POST)
         if form.is_valid():
             form.save(quest.pk)
             url = quest.get_absolute_url()
