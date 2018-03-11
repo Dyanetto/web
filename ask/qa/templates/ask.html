@@ -2,22 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{ question.title }}</title>
+    <title>Ask</title>
 </head>
 <body>
-    <h1>{{ question.title }}</h1>
-    <div>{{ question.text }}</div>
-    <br />
-    {% for ans in answers %}
-        <div> {{ ans.text }} <div>
-    {% endfor %}
-    </div>
+    <h1>Ask</h1>
     <br />
     {% for e in form.non_field_errors %}
         <div class="alert alert-danger">{{ e }}</div>
     {% endfor %}
-    <form class="form-horizontal" method="post" action="{{ question.get_absolute_url }}">
-        {% csrf_token %}
+    <form class="form-horizontal" method="post" action="/ask/">
+       {% csrf_token %}
         <fieldset>
         {% for field in form %}
             <div class="control-group
