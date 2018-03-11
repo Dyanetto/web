@@ -21,7 +21,7 @@ class AskForm(forms.Form):
 
 class AnswerForm(forms.Form):
     text = forms.CharField(widget=forms.Textarea)
-    question_id = forms.IntegerField(widget=forms.HiddenInput)
+    question= forms.IntegerField()
     
     def clean__text(self):
         if not len(text):
@@ -29,6 +29,6 @@ class AnswerForm(forms.Form):
 
     def save(self, question_id):
         qu = Question.objects.get(pk = question_id)
-        answer = Answer(**self.cleaned_data)
+        answer = Answer(self.cleaned_data['test'])
         answer.question = qu
         answer.save()
